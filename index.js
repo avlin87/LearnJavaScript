@@ -1,13 +1,28 @@
-const movies = [
-    { title: 'a', year: 2018, raiting: 4.5 },
-    { title: 'b', year: 2018, raiting: 4.7 },
-    { title: 'c', year: 2018, raiting: 3 },
-    { title: 'd', year: 2017, raiting: 4.5 }
-];
+function sum(...args){
+    if (args.length === 0) {
+        return 'Please pass values to sum';
+    }
+    if (Array.isArray(args[0])){
+        return args[0].reduce((a,b) => a + b);
+    } 
+    return args.reduce((a,b) => a + b);
+}
 
-const output = movies
-     .sort((a, b) => b.raiting - a.raiting)
-     .filter(movie => movie.raiting >= 4 && movie.year === 2018)
-     .map(movie => movie.title);
 
-console.log(output);
+console.log(sum([2,3,5]));
+console.log(sum(11,1,4,2,3));
+
+
+function sum1(){
+    if (arguments.length === 0) {
+        return 'Please pass values to sum';
+    }
+    if (Array.isArray(arguments[0])){
+        return arguments[0].reduce((a,b) => a + b);
+    } 
+    return Array.from(arguments).reduce((a,b) => a + b);
+}
+
+
+console.log(sum1([2,3,5]));
+console.log(sum1(11,1,4,2,3));
