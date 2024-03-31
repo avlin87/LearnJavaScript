@@ -1,16 +1,16 @@
-walk();
-
-function walk() {
-    console.log('walk');
-}
-
-console.log(x);
-let x = 1;
-
-const run = function() {
-    console.log('run');
+const person = {
+    firstName: 'Alex',
+    lastName: 'Liadov',
+    get fullName(){
+        return `${person.firstName} ${person.lastName}`
+    },
+    set fullName(value){
+        const parts = value.split(' ');
+        this.firstName = parts[0];
+        this.lastName = parts[1];
+    }
 };
 
-const fast = run;
+person.fullName = 'John Smith';
 
-fast();
+console.log(person)
